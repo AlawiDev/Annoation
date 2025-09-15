@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Annotation Tool — Review</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Human-in-the-Loop Annotation</h1>
+      <p class="subtitle">Upload a video → review detected people → confirm to save the dataset.</p>
+    </header>
+
+    <div class="upload-area">
+      <input id="videoUpload" type="file" accept="video/*" />
+      <label id="chooseLabel" for="videoUpload" class="btn choose">Choose Video</label>
+      <button id="uploadBtn" class="btn primary">Upload & Detect</button>
+      <div id="fileInfo" class="fileInfo"></div>
+    </div>
+
+    <div id="status" class="status">No session yet. Choose a video to begin.</div>
+
+    <div id="sessionControls" class="controls hidden">
+      <button id="refreshBtn" class="btn">Refresh</button>
+      <button id="newPersonBtn" class="btn">+ New Person</button>
+      <button id="confirmBtn" class="btn primary">Confirm & Save Dataset</button>
+    </div>
+
+    <h2>Detected Persons</h2>
+    <div id="personsGrid" class="persons-grid"></div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-window">
+      <button id="closeModal" class="close-btn">✕</button>
+      <h3 id="modalTitle"></h3>
+
+      <div class="modal-actions">
+        <select id="moveToSelect"><option value="">Move to...</option></select>
+        <button id="moveBtn" class="btn">Move Selected</button>
+        <button id="deleteBtn" class="btn danger">Delete Selected</button>
+      </div>
+
+      <div id="modalGrid" class="modal-grid"></div>
+    </div>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
